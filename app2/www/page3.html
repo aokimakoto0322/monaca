@@ -1,0 +1,20 @@
+<ons-page>
+    <h1>test</h1>
+    <ons-input id="message" modifer="underber" placeholder="メッセージを入力" float></ons-input>
+    <ons-button id="send">送信</ons-button>
+
+    <script>
+        document.getElementById("send").addEventListener("click", () => {
+            var message = document.getElementById("message").value
+            if(message === ""){
+                ons.notification.alert("メッセージを入力してください。")
+            }else{
+                document.getElementById("nav").pushPage("detail.html", {
+                    data:{
+                        message
+                    }
+                })
+            }
+        })
+    </script>
+</ons-page>

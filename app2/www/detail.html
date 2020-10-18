@@ -1,0 +1,15 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center"></div>
+    </ons-toolbar>
+    <h1>detail</h1>
+    <p1 id="mes"></p1>
+
+    <script>
+        //画面を最初に読み込んだ時に処理する関数
+        ons.getScriptPage().onShow = function(){
+            document.getElementById("mes").innerHTML = this.data.message
+        }
+    </script>
+</ons-page>
