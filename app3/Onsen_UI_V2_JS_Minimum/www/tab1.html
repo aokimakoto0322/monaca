@@ -1,0 +1,83 @@
+<ons-page id="tab1">
+    <ons-toolbar>
+        <div class="center">設定</div>
+    </ons-toolbar>
+
+    <ons-list class="range-list">
+        <ons-list-header>音量</ons-list-header>
+        <ons-list-item>
+            <ons-row>
+                <ons-col width="40px">
+                    <ons-icon icon="fa-volume-down" class="lower"></ons-icon>
+                </ons-col>
+                <ons-col class="range-wrapper">
+                    <input type="range" value="50" class="range" id="range">
+                </ons-col>
+                <ons-col>
+                    <ons-icon icon="fa-volume-up"></ons-icon>
+                </ons-col>
+            </ons-row>
+        </ons-list-item>
+        <p id="range-info">50</p>
+    </ons-list>
+
+    <ons-list>
+        <ons-list-header>
+            背景色
+        </ons-list-header>
+
+        <form id="radiogroup">
+            <ons-list-item modifer="tappable">
+                <label class="radiobutton radio-button--list-item" style="color:red">
+                    <input type="radio" name="a" checked="checked" value="red">
+                    <div class="radio-button__checkmark radio-button--list-item__checked"></div>
+                    赤
+                </label>
+            </ons-list-item>
+    
+            <ons-list-item modifer="tappable">
+                <label class="radiobutton radio-button--list-item" style="color:green">
+                    <input type="radio" name="a" value="green">
+                    <div class="radio-button__checkmark radio-button--list-item__checked"></div>
+                    緑
+                </label>
+            </ons-list-item>
+    
+            <ons-list-item modifer="tappable">
+                <label class="radiobutton radio-button--list-item" style="color:blue">
+                    <input type="radio" name="a" value="blue">
+                    <div class="radio-button__checkmark radio-button--list-item__checked"></div>
+                    青
+                </label>
+            </ons-list-item>
+    
+            <p id="radio-info" style="text-align: center;">red</p>
+
+
+            
+        </form>
+
+    </ons-list>
+
+
+    <script>
+        ons.ready(function(){
+            //色のラジオボタンの処理
+            const radiogroup = document.getElementById("radiogroup")
+            radiogroup.addEventListener("change", event => {
+                document.getElementById("radio-info").innerHTML = event.target.value
+                console.log(event.target)
+            })
+            //音量の処理
+            document.getElementById("range").addEventListener("input", event => {
+                document.getElementById("range-info").innerHTML = event.target.value
+                console.log(event.target.value)
+            })
+
+            
+        })
+        
+    </script>
+
+</ons-page>
+

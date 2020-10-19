@@ -15,6 +15,13 @@
   <script>
     ons.ready(function() {
       console.log("Onsen UI is ready!");
+
+      window.fn = {}
+      window.fn.open = function(){
+        var menu = document.getElementById("menu")
+        menu.open()
+      }
+      
     });
 
     if (ons.platform.isIPhoneX()) {
@@ -24,6 +31,38 @@
   </script>
 </head>
 <body>
-  This is a template for Onsen UI app.
+
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+      <ons-page>
+        <ons-list tappleble>
+          Home
+        </ons-list>
+        <ons-list tappable>
+          Setting
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="main.html"></ons-splitter-content>
+  </ons-splitter>
+
+  <template id="main.html">
+    <ons-page>
+      <ons-toolbar>
+          <div class="left">
+              <ons-toolbar-button id="toolbutton" onclick="fn.open()">
+                  <ons-icon icon="md-menu"></ons-icon>
+              </ons-toolbar-button>
+          </div>
+      </ons-toolbar>
+      <ons-tabbar swipeable position="auto">
+        <ons-tab page="tab1.html" label="Tab1" icon="ion-home , material:md-home" badge="7" active></ons-tab>
+        <ons-tab page="tab2.html" label="Tab2" icon="md-settiongs" active-icon="md-face"></ons-tab>
+      </ons-tabbar>
+    </ons-page>
+  </template>
+  
+
+  
 </body>
 </html>
